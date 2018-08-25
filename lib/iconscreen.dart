@@ -20,13 +20,20 @@ class IconScreen extends StatefulWidget {
 
 class _MyHomePageState extends State<IconScreen> {
   int val = 0;
+  int val1 = 0;
 
   void _openpage() {
+    Navigator.pushNamed(context, '/screen3');
+  }
+  void _openpage1() {
     Navigator.pushNamed(context, '/screen3');
   }
 
   void _onChanged(String input) {
     val = int.parse(input);
+  }
+  void _onChanged1(String input) {
+    val1 = int.parse(input);
   }
 
   @override
@@ -71,11 +78,20 @@ class _MyHomePageState extends State<IconScreen> {
               decoration: InputDecoration(
                   border: InputBorder.none,
                   hintText: 'Please enter a search term'),
-              onChanged: _onChanged,
+              onChanged: _onChanged),
+            new Text('$val1'),
+            new FlatButton(
+                onPressed: _openpage1, child: new Icon(Icons.add_circle)),
+            TextField(
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hintText: 'Please enter a search term'),
+                onChanged: _onChanged1),]
             )
-          ],
+
         ),
-      ),
-    );
+      );
+
   }
 }
