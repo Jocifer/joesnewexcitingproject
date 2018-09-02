@@ -35,6 +35,17 @@ class _MyHomePageState extends State<IconScreen> {
     res = val + val1;
   }
 
+  void _addNumbers() {
+    setState(() {
+      // This call to setState tells the Flutter framework that something has
+      // changed in this State, which causes it to rerun the build method below
+      // so that the display can reflect the updated values. If we changed
+      // _counter without calling setState(), then the build method would not be
+      // called again, and so nothing would appear to happen.
+      res = val + val1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -50,44 +61,40 @@ class _MyHomePageState extends State<IconScreen> {
         title: new Text(widget.title),
       ),
       body: new Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
+          // Center is a layout widget. It takes a single child and positions it
+          // in the middle of the parent.
           child: new Column(
-            // Column is also layout widget. It takes a list of children and
-            // arranges them vertically. By default, it sizes itself to fit its
-            // children horizontally, and tries to be as tall as its parent.
-            //
-            // Invoke "debug paint" (press "p" in the console where you ran
-            // "flutter run", or select "Toggle Debug Paint" from the Flutter tool
-            // window in IntelliJ) to see the wireframe for each widget.
-            //
-            // Column has various properties to control how it sizes itself and
-            // how it positions its children. Here we use mainAxisAlignment to
-            // center the children vertically; the main axis here is the vertical
-            // axis because Columns are vertical (the cross axis would be
-            // horizontal).
+              // Column is also layout widget. It takes a list of children and
+              // arranges them vertically. By default, it sizes itself to fit its
+              // children horizontally, and tries to be as tall as its parent.
+              //
+              // Invoke "debug paint" (press "p" in the console where you ran
+              // "flutter run", or select "Toggle Debug Paint" from the Flutter tool
+              // window in IntelliJ) to see the wireframe for each widget.
+              //
+              // Column has various properties to control how it sizes itself and
+              // how it positions its children. Here we use mainAxisAlignment to
+              // center the children vertically; the main axis here is the vertical
+              // axis because Columns are vertical (the cross axis would be
+              // horizontal).
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                new Text('$val'),
-                TextField(
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                        border: InputBorder.none, hintText: 'Red Apples'),
-                    onChanged: _onChanged),
-                new Text('$val1'),
-                TextField(
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                        border: InputBorder.none, hintText: 'Green Apples'),
-                    onChanged: _onChanged1),
-                new Text('$res'),
-                TextField(
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                        border: InputBorder.none, hintText: 'Total Apples'),
-                    onChanged: _onChanged2),
-              ])),
+            new Text('$val'),
+            TextField(
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                    border: InputBorder.none, hintText: 'Red Apples'),
+                onChanged: _onChanged),
+            new Text('$val1'),
+            TextField(
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                    border: InputBorder.none, hintText: 'Green Apples'),
+                onChanged: _onChanged1),
+            new Text('$res'),
+            new FlatButton(child: Text("ADD"), onPressed: _addNumbers),
+          ])),
     );
   }
 }
