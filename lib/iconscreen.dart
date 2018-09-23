@@ -31,8 +31,14 @@ class _MyHomePageState extends State<IconScreen> {
     val1 = int.parse(input);
   }
 
-  void _onChanged2(String input) {
-    res = val + val1;
+  void _equalVal() {
+    setState(() {
+      if (val1 >= val) {
+        res = val1 - val;
+      } else {
+        res = val - val1;
+      }
+    });
   }
 
   void _addNumbers() {
@@ -94,6 +100,7 @@ class _MyHomePageState extends State<IconScreen> {
                 onChanged: _onChanged1),
             new Text('$res'),
             new FlatButton(child: Text("ADD"), onPressed: _addNumbers),
+            new FlatButton(child: Text("DIF"), onPressed: _equalVal),
           ])),
     );
   }
